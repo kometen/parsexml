@@ -24,5 +24,7 @@ object WordCount {
 			.xml("/Users/claus/data/spark/20160229-20160306_utf8.xml")
 
 		df.printSchema()
+
+		spark.stop
 	}
 }
