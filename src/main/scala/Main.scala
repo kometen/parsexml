@@ -25,6 +25,32 @@ object WordCount {
 
 		df.printSchema()
 
+		val selectedData = df.select(
+			"`JOURNPOST.OJ`.`AVSMOT.OJ`.`AM.IHTYPE`",
+			"`JOURNPOST.OJ`.`AVSMOT.OJ`.`AM.NAVN`",
+			"`JOURNPOST.OJ`.`JP.DOKDATO`",
+			"`JOURNPOST.OJ`.`JP.JAAR`",
+			"`JOURNPOST.OJ`.`JP.JDATO`",
+			"`JOURNPOST.OJ`.`JP.NDOKTYPE`",
+			"`JOURNPOST.OJ`.`JP.OFFINNHOLD`",
+			"`JOURNPOST.OJ`.`JP.POSTNR`",
+			"`JOURNPOST.OJ`.`JP.SEKNR`",
+			"`JOURNPOST.OJ`.`JP.TGKODE`",
+			"`JOURNPOST.OJ`.`JP.UOFF`",
+			"`KLASSERING.OJ`.`KL.OPLTEKST`",
+			"`KLASSERING.OJ`.`KL.ORDNVERDI`",
+			"`KLASSERING.OJ`.`KL.OVBESK`",
+			"`KLASSERING.OJ`.`KL.SORT`",
+			"`SA.ADMKORT`",
+			"`SA.ANSVINIT`",
+			"`SA.OFFTITTEL`",
+			"`SA.SAAR`",
+			"`SA.SEKNR`"
+		)
+
+		selectedData.select("`AM.NAVN`").show(2, false)
+		selectedData.show(3, false)
+
 		spark.stop
 	}
 }
