@@ -51,6 +51,8 @@ object WordCount {
 		selectedData.select("`AM.NAVN`").show(2, false)
 		selectedData.show(3, false)
 
+		selectedData.write.parquet("journal.parquet")
+
 		spark.stop
 	}
 }
