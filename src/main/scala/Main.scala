@@ -51,7 +51,10 @@ object WordCount {
 		selectedData.select("`AM.NAVN`").show(2, false)
 		selectedData.show(3, false)
 
-		selectedData.write.parquet("journal.parquet")
+		val publicJournal = selectedData.filter("`JP.UOFF` is null")
+		publicJournal.show(3, false)
+
+		//selectedData.write.parquet("journal.parquet")
 
 		spark.stop
 	}
